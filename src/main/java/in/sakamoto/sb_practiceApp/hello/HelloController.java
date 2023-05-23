@@ -30,7 +30,7 @@ public class HelloController {
     @PostMapping("/hello/db")
     public String postDbRequest(@RequestParam("text2") String id, Model model) {
         // 1件検索
-        Employee employee = service.getEmployee("id");
+        Employee employee = service.getEmployee(id);
         // 検索結果をModelに登録
         model.addAttribute("employee", employee);
         // db.htmlに画面遷移
