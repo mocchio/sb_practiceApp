@@ -1,0 +1,10 @@
+package in.sakamoto.sb_practiceApp.hello;
+
+import lombok.Data;
+
+@Data
+public class Employee {
+    private String employeeId;
+    private String employeeName;
+    private int employeeAge;
+}
