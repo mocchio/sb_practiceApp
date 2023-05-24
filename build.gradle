@@ -28,6 +28,9 @@ dependencies {
 	runtimeOnly 'com.h2database:h2'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation('org.webjars:jquery:3.5.1')
+	implementation('org.webjars:bootstrap:4.5.3')
+	implementation('org.webjars:webjars-locator:0.40')
 }
 
 tasks.named('test') {
