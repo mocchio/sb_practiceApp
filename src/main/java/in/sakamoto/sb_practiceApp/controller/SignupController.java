@@ -38,7 +38,7 @@ public class SignupController {
         // 入力チェック結果
         if (bindingResult.hasErrors()) {
             // NG:入力画面に戻る
-            return getSignup(model, locale, form)
+            return getSignup(model, locale, form);
         }
         log.info(form.toString());
         // ログイン画面にリダイレクト
