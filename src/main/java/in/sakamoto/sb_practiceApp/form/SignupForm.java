@@ -2,7 +2,6 @@ package in.sakamoto.sb_practiceApp.form;
 
 import jakarta.validation.constraints.*;
 import lombok.Data;
-import lombok.NonNull;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -11,7 +10,7 @@ import java.util.Date;
 @Data
 public class SignupForm {
 
-    @NonNull
+    @NotBlank
     @Email
     private String userId;
 
