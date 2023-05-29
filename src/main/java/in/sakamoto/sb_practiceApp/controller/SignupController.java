@@ -1,6 +1,7 @@
 package in.sakamoto.sb_practiceApp.controller;
 
 import in.sakamoto.sb_practiceApp.application.service.UserApplicationService;
+import in.sakamoto.sb_practiceApp.form.GroupOrder;
 import in.sakamoto.sb_practiceApp.form.SignupForm;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +36,7 @@ public class SignupController {
 
     /* ユーザー登録処理 */
     @PostMapping("/signup")
-    public String postSignup(Model model, Locale locale, @ModelAttribute @Validated SignupForm form, BindingResult bindingResult) {
+    public String postSignup(Model model, Locale locale, @ModelAttribute @Validated(GroupOrder.class) SignupForm form, BindingResult bindingResult) {
         // 入力チェック結果
         if (bindingResult.hasErrors()) {
             // NG:入力画面に戻る
