@@ -6,6 +6,8 @@ import in.sakamoto.sb_practiceApp.repository.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -18,5 +20,11 @@ public class UserServiceImpl implements UserService {
         user.setDepartmentId(1); // 部署
         user.setRole("ROLE_GENERAL"); // ロール
         mapper.insertOne(user);
+    }
+
+    /* ユーザー取得 */
+    @Override
+    public List<MUser> getUsers() {
+        return mapper.findMany();
     }
 }
