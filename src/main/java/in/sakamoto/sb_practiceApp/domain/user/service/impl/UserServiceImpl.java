@@ -14,7 +14,9 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper mapper;
 
-    /* ユーザー登録 */
+    /**
+     *  ユーザー登録
+     */
     @Override
     public void signup(MUser user) {
         user.setDepartmentId(1); // 部署
@@ -22,9 +24,19 @@ public class UserServiceImpl implements UserService {
         mapper.insertOne(user);
     }
 
-    /* ユーザー取得 */
+    /**
+     *  ユーザー取得
+     */
     @Override
     public List<MUser> getUsers() {
         return mapper.findMany();
+    }
+
+    /**
+     * ユーザー取得（1件）
+     */
+    @Override
+    public MUser getUserOne(String userId) {
+        return mapper.findOne(userId);
     }
 }

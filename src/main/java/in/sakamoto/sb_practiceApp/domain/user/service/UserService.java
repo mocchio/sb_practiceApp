@@ -6,9 +6,18 @@ import java.util.List;
 
 public interface UserService {
 
-    /* ユーザー登録 */
-    public void signup(MUser user);
+    /**
+     *  ユーザー登録
+     */
+    void signup(MUser user);
 
-    /* ユーザー取得 */
-    public List<MUser> getUsers();
+    /**
+     *  ユーザー取得
+     */
+    List<MUser> getUsers();
+
+    /**
+     * ユーザー取得（1件）
+     */
+    MUser getUserOne(String userId);
 }

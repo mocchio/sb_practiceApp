@@ -8,9 +8,18 @@ import java.util.List;
 @Mapper
 public interface UserMapper {
 
-    /* ユーザー登録 */
-    public int insertOne(MUser user);
+    /**
+     * ユーザー登録
+     */
+    int insertOne(MUser user);
 
-    /* ユーザー取得 */
-    public List<MUser> findMany();
+    /**
+     * ユーザー取得
+     */
+    List<MUser> findMany();
+
+    /**
+     * ユーザー取得（1件）
+     */
+    MUser findOne(String UserId);
 }
