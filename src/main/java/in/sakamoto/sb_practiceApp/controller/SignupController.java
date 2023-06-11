@@ -1,9 +1,12 @@
 package in.sakamoto.sb_practiceApp.controller;
 
 import in.sakamoto.sb_practiceApp.application.service.UserApplicationService;
+import in.sakamoto.sb_practiceApp.domain.user.model.MUser;
+import in.sakamoto.sb_practiceApp.domain.user.service.UserService;
 import in.sakamoto.sb_practiceApp.form.GroupOrder;
 import in.sakamoto.sb_practiceApp.form.SignupForm;
 import lombok.extern.slf4j.Slf4j;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,6 +27,12 @@ public class SignupController {
     @Autowired
     private UserApplicationService userApplicationService;
 
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private ModelMapper modelMapper;
+
     /* ユーザー登録画面の表示 */
     @GetMapping("/signup")
     public String getSignup(Model model, Locale locale, @ModelAttribute SignupForm form) {
@@ -43,6 +52,13 @@ public class SignupController {
             return getSignup(model, locale, form);
         }
         log.info(form.toString());
+
+        // formをMUserクラスに変換
+        MUser user = modelMapper.map(form, MUser.class);
+
+        // ユーザー登録
+        userService.signup(user);
+
         // ログイン画面にリダイレクト
         return "redirect:/login";
     }
